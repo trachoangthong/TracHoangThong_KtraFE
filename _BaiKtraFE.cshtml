@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Trang Amazon</title>
+    <style type="text/css">
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #131921;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+
+        .search-bar {
+            display: flex;
+            flex: 1;
+            margin: 0 20px;
+        }
+
+            .search-bar input {
+                width: 100%;
+                padding: 8px;
+                border: none;
+                border-radius: 3px 0 0 3px;
+            }
+
+            .search-bar button {
+                padding: 8px 15px;
+                background-color: #febd69;
+                border: none;
+                cursor: pointer;
+                border-radius: 0 3px 3px 0;
+            }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        .banner {
+            text-align: center;
+            background: linear-gradient(to right, #b3d8ff, #fbd3e9);
+            padding: 30px 20px;
+        }
+
+            .banner h1 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .banner.icon-alexa {
+                width: 80px;
+                margin: 10px 0;
+            }
+
+
+            .banner.devices {
+                width: 150px;
+                height: 100px;
+                margin-right: 50px;
+            }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+            .box h2 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .box img {
+                width: 100%;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .box a {
+                color: #0073e6;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+            .grid div {
+                text-align: center;
+            }
+
+            .grid img {
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .grid p {
+                font-size: 13px
+            }
+        .lower-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+            .lower-container.box {
+                background-color: white;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                text-align: center;
+            }           
+            .lower-container.single-grid img {
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .lower-container.double-grid .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .lower-container.double-grid img {
+                width: 100%;
+                border-radius: 6px;
+            }
+
+            .lower-container.quad-grid .grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .lower-container.quad-grid img {
+                width: 100%;
+                border-radius: 6px;
+            }
+        .related {
+            padding: 30px;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+            .related h2 {
+                display: inline-block;
+            }
+
+            .related .see-more {
+                float: right;
+                color: #0073e6;
+                text-decoration: none;
+                font-size: 14px;
+            }
+
+        .related-items {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+
+            .related-items img {
+                height: 180px;
+                border-radius: 5px;
+                flex-shrink: 0;
+            }
+        .footer {
+            background-color: #232f3e;
+            color: #ddd;
+            padding: 40px 30px;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+            .footer-links h4 {
+                color: white;
+                margin-bottom: 10px;
+                font-size: 14px;
+            }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 15px;
+            color: #aaa;
+        }
+        .footer {
+            background-color: #232f3e;
+            color: #ddd;
+            padding: 40px 60px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            border-top: 1px solid #3a4553;
+        }
+
+        .footer-column {
+            flex: 1 1 180px;
+            margin: 10px 20px;
+        }
+
+            .footer-column h4 {
+                color: #fff;
+                font-size: 14px;
+                margin-bottom: 6px;
+            }
+
+            .footer-column p {
+                color: #ccc;
+                font-size: 13px;
+                margin: 2px 0;
+            }
+
+                .footer-column p:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                    color: #fff;
+                }
+
+        .footer-bottom {
+            background-color: #131a22;
+            color: #ccc;
+            text-align: center;
+            font-size: 12px;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+            .footer-bottom a {
+                color: #ccc;
+                text-decoration: none;
+                margin: 0 8px;
+            }
+
+                .footer-bottom a:hover {
+                    text-decoration: underline;
+                }        
+         
+    </style>
+
+
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo"></div>
+        <img src="~/Content/HinhAnh/Hinh5.jpg" />
+        <div class="search-bar">
+            <input type="text" placeholder="Search" />
+            <button>Go</button>
+        </div>
+        <div class="menu">
+            <a href="#">Your Account</a>
+            <a href="#">Help</a>
+            <a href="#">Cart</a>
+        </div>
+    </header>
+
+    <section class="banner">
+        <h1>Shop Amazon Devices With Alexa</h1>
+
+
+        <div class="devices">
+            <img src="~/Content/HinhAnh/Hinh11.jpg" />
+        </div>
+    </section>
+    <section class="container">
+        <div class="box">
+            <h2>Prime Video</h2>
+            <img src="~/Content/HinhAnh/Hinh1.jpg" />
+            <a href="#">Try 30 days for free</a>
+        </div>
+
+        <div class="box">
+            <h2>Customers' most-loved</h2>
+            <div class="grid">
+                <div>
+                    <img src="~/Content/HinhAnh/Hinh2.1.jpg" />
+                    <p>Women's fashion</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/Hinh2.2.jpg" />
+                    <p>Men's fashion</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/Hinh2.3.jpg" />
+                    <p>Beauty</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/Hinh2.4.jpg" />
+                    <p>Home</p>
+                </div>
+            </div>
+            <a href="#">Discover items with 4+ stars</a>
+        </div>
+
+        <div class="box">
+            <h2>Best Sellers in Outlet</h2>
+            <img src="~/Content/HinhAnh/Hinh3.jpg" />
+            <a href="#">Shop now</a>
+        </div>
+
+        <div class="box">
+            <h2>Amazon exclusive toys</h2>
+            <img src="~/Content/HinhAnh/Hinh4.jpg" />
+            <a href="#">See more</a>
+        </div>
+    </section>
+
+    <section class="lower-container">
+        <div class="box">
+            <h2>New home arrivals under $50</h2>
+            <div class="grid">
+                <img src="~/Content/HinhAnh/hinhcontainer1a.jpg" />
+                <p>Kitchen & Dining</p>
+            </div>
+            <div>
+                <img src="~/Content/HinhAnh/hinhcontainer1b.jpg" />
+                <p>Home improvement</p>
+            </div>
+            <div>
+                <img src="~/Content/HinhAnh/hinhcontainer1c.jpg" />
+                <p>Decor</p>
+            </div>
+            <div>
+                <img src="~/Content/HinhAnh/hinhcontainer1d.jpg" />
+                <p>Bedding & Bath</p>
+            </div>
+            <a href="#">Shop the lastest from home</a>
+        </div>
+        <div class="box">
+            <h2>Top categories in Kitchen appliances</h2>
+            <div class="grid">
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer2a.jpg" />
+                    <p>Cooker</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer2b.jpg" />
+                    <p>Coffee</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer2c.jpg" />
+                    <p>Pots and Pans</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer2d.jpg" />
+                    <p>Kettle</p>
+                </div>
+            </div>
+            <a href="#">Explore all products in Kitchen</a>
+        </div>
+
+        <div class="box">
+            <h2>Fashion trends you like</h2>
+            <div class="grid">
+                <img src="~/Content/HinhAnh/hinhcontainer3a.jpg" />
+                <p>Dressed</p>
+                <img src="~/Content/HinhAnh/hinhcontainer3b.jpg" />
+                <p>Knits</p>
+                <img src="~/Content/HinhAnh/hinhcontainer3c.jpg" />
+                <p>Jackets</p>
+                <img src="~/Content/HinhAnh/hinhcontainer3d.jpg" />
+                <p>Jewelry</p>
+            </div>
+            <a href="#">Explore more</a>
+        </div>
+
+        <div class="box">
+            <h2>Easy updates for elevated spaces</h2>
+            <div class="grid">
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer4a.jpg" />
+                    <p>Basket&Hambers</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer4b.jpg" />
+                    <p>Hardware</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer4c.jpg" />
+                    <p>Accent furniture</p>
+                </div>
+                <div>
+                    <img src="~/Content/HinhAnh/hinhcontainer4d.jpg" />
+                    <p>Wallpaper&paint</p>
+                </div>
+            </div>
+            <a href="#">Shop home products</a>
+        </div>
+    </section>
+    <section class="related">
+        <h2>Related to items you've viewed</h2>
+        <a href="#" class="see-more">See more</a>
+        <div class="related-items">
+            <img src="~/Content/HinhAnh/hinhrl1.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl2.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl3.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl4.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl5.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl6.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl7.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl8.jpg" />
+            <img src="~/Content/HinhAnh/hinhrl9.jpg" />
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer">
+        <div class="footer-column">
+            <h4>Amazon Music</h4>
+            <p>Stream millions of songs</p> 
+            <h4>Amazon Business</h4> 
+            <p>Everything For Your Business</p> 
+            <h4>IMDbPro</h4> 
+            <p>Get Info Entertainment Professionals Need</p> 
+            <h4>eero WiFi</h4> 
+            <p>Stream 4K Video in Every Room</p> 
+            </div> <div class="footer-column"> 
+            <h4>Amazon Ads</h4> 
+            <p>Reach customers wherever they spend their time</p> 
+            <h4>AmazonGlobal</h4> 
+            <p>Ship Orders Internationally</p> 
+            <h4>Kindle Direct Publishing</h4> 
+            <p>Indie Digital & Print Publishing Made Easy</p> 
+            <h4>Blink</h4> <p>Smart Security for Every Home</p> 
+            </div>
+            <div class="footer-column">
+            <h4>6pm</h4> <p>Score deals on fashion brands</p> 
+            <h4>Amazon Web Services</h4> 
+            <p>Scalable Cloud Computing Services</p> 
+            <h4>Prime Video Direct</h4> 
+            <p>Video Distribution Made Easy</p> 
+            <h4>Neighbors App</h4> 
+            <p>Real-Time Crime & Safety Alerts</p> 
+            </div> 
+            <div class="footer-column"> 
+            <h4>AbeBooks</h4> 
+            <p>Books, art & collectibles</p> 
+            <h4>Audible</h4> 
+            <p>Listen to Books & Original Audio Performances</p>
+            <h4>Shopbop</h4> 
+            <p>Designer Fashion Brands</p> 
+            <h4>Amazon Subscription Boxes</h4> 
+            <p>Top subscription boxes – right to your door</p> 
+            </div> 
+            <div class="footer-column"> 
+            <h4>ACX</h4> 
+            <p>Audiobook Publishing Made Easy</p> 
+            <h4>Box Office Mojo</h4> 
+            <p>Find Movie Box Office Data</p> 
+            <h4>Woot!</h4> 
+            <p>Deals and Shenanigans</p> 
+            <h4>PillPack</h4> 
+            <p>Pharmacy Simplified</p> 
+            </div> 
+            <div class="footer-column"> 
+            <h4>Sell on Amazon</h4> 
+            <p>Start a Selling Account</p> 
+            <h4>Goodreads</h4> 
+            <p>Book reviews & recommendations</p> 
+            <h4>Zappos</h4> 
+            <p>Shoes & Clothing</p> 
+            <h4>Ring</h4> 
+            <p>Smart Home Security Systems</p> 
+            <h4>Veeqo</h4> 
+            <p>Shipping Software Inventory Management</p> 
+            <h4>IMDb</h4> 
+            <p>Movies, TV & Celebrities</p> 
+            </div> 
+        </div> 
+        <div class="footer-bottom"> 
+        <a href="#">Conditions of Use</a> 
+        <a href="#">Privacy Notice</a> 
+        <a href="#">Consumer Health Data Privacy Disclosure</a> 
+        <a href="#">Your Ads Privacy Choices</a><span>☑️</span> 
+        <p>© 1996–2025, Amazon.com, Inc. or its affiliates</p> 
+        </div>
+    </footer>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+
